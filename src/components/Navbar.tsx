@@ -65,6 +65,14 @@ const Navbar = () => {
                     TV Shows
                 </NavLink>
             </div>
+            <div>
+                <span className="material-symbols-outlined searchIcon">search</span>
+                <input 
+                type="text" 
+                placeholder="Search..."
+                className='searchInput'
+                />
+            </div>
         </div>
     </NavbarWrapper>
   );

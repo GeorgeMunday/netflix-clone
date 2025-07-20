@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const NavbarWrapper = styled.div`
-  position: relative; /* normal flow for the navbar wrapper */
+  position: relative;
   z-index: 10;
 
   &::before {
@@ -16,11 +16,11 @@ export const NavbarWrapper = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     filter: brightness(0.5);
-    z-index: -1;  /* behind everything */
+    z-index: -1;
   }
 
   .navbar {
-    position: sticky; /* sticks at top on scroll */
+    position: sticky;
     top: 0;
     width: 100%;
     max-width: 1200px;
@@ -30,8 +30,6 @@ export const NavbarWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
-    background: rgba(0,0,0,0.4); /* slight translucent bg for visibility */
-    backdrop-filter: blur(5px); /* nice glass effect for readability */
     z-index: 10;
   }
 
@@ -72,5 +70,42 @@ export const NavbarWrapper = styled.div`
 
   .navLinks a.active {
     color: #ff3c3c;
+  }
+
+  /* --- Search Input Styling --- */
+  .searchContainer {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .searchInput {
+  width: 100%;
+  padding: 12px 18px 12px 44px;
+  font-size: 16px;
+  border: none;
+  border-radius: 9999px;
+  background-color: rgba(100, 100, 100, 0.2); /* semi-transparent gray */
+  color: #e5e7eb; /* light text (gray-200) */
+  backdrop-filter: blur(4px); /* optional: for glass effect */
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: rgba(229, 231, 235, 0.5); /* semi-transparent placeholder */
+}
+
+
+  .searchIcon {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #6b7280;
+    pointer-events: none;
   }
 `;
