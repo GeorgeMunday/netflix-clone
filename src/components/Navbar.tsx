@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import { baseUrl, popularShows, apiKey, popular } from '../modules/ApiLinks';
@@ -16,7 +16,8 @@ import {
   BurgerMenuButton,
   BurgerMenuItems,
   CloseButton,
-  MovieInfo
+  MovieInfo,
+  infoBtn
 } from '../styles/Navbar.modules';
 
 const Navbar = () => {
@@ -107,6 +108,7 @@ const Navbar = () => {
         <MovieInfo>
             <h1>{movieData.title}</h1>
             <p>{movieData.overview}</p>
+            <button className={infoBtn}>More Info</button>
         </MovieInfo>
     </NavbarWrapper>
   );

@@ -144,6 +144,9 @@ export const BurgerMenuButton = styled.button`
   }
 `;
 
+export const infoBtn = styled.button``;
+
+
 export const BurgerMenuItems = styled.div<{ open: boolean }>`
   display: ${({ open }) => (open ? 'flex' : 'none')};
   flex-direction: column;
