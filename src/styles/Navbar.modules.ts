@@ -98,6 +98,39 @@ export const ProfileIcon = styled.img`
   border-radius: 50%;
 `;
 
+export const MovieInfo = styled.div`
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  max-width: 600px;
+  color: white;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 1rem;
+    left: 1rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+`;
+
+
 export const BurgerMenuButton = styled.button`
   display: none;
   background: none;

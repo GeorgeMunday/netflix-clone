@@ -15,7 +15,8 @@ import {
   ProfileIcon,
   BurgerMenuButton,
   BurgerMenuItems,
-  CloseButton
+  CloseButton,
+  MovieInfo
 } from '../styles/Navbar.modules';
 
 const Navbar = () => {
@@ -102,8 +103,11 @@ const Navbar = () => {
         <NavLink to="/tvshows" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => setMenuOpen(false)}>TV Shows</NavLink>
         <CloseButton onClick={() => setMenuOpen(false)}>&times;</CloseButton>
         </BurgerMenuItems>
-
       </NavbarContainer>
+        <MovieInfo>
+            <h1>{movieData.title}</h1>
+            <p>{movieData.overview}</p>
+        </MovieInfo>
     </NavbarWrapper>
   );
 };
