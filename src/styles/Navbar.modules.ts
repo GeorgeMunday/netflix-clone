@@ -1,111 +1,134 @@
 import styled from 'styled-components';
 
-export const NavbarWrapper = styled.div`
-  position: relative;
-  z-index: 10;
-
-  &::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: ${(props) => props.style?.backgroundImage || 'none'};
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(0.5);
-    z-index: -1;
-  }
-
-  .navbar {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    max-width: 1200px;
-    height: 80px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    z-index: 10;
-  }
-
-  .logo img {
-    height: 40px;
-    object-fit: contain;
-  }
-
-  .navLinks {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .navLinks a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-    position: relative;
-  }
-
-  .navLinks a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    left: 0;
-    bottom: -6px;
-    background: #ff3c3c;
-    transition: width 0.3s ease;
-  }
-
-  .navLinks a:hover::after,
-  .navLinks a.active::after {
-    width: 100%;
-  }
-
-  .navLinks a.active {
-    color: #ff3c3c;
-  }
-
-  /* --- Search Input Styling --- */
-  .searchContainer {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .searchInput {
+export const NavbarWrapper = styled.div<{ backgroundImage?: string }>`
+  background-image: ${({ backgroundImage }) => `url(${backgroundImage})`};
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
   width: 100%;
-  padding: 12px 18px 12px 44px;
-  font-size: 16px;
+`;
+
+export const NavbarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+`;
+
+export const LogoContainer = styled.div`
+  img {
+    height: 40px;
+  }
+`;
+
+export const NavLinks = styled.div`
+  display: flex;
+  gap: 2rem;
+
+  a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+
+    &.active {
+      color: #ff6600; // orange for active tab
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const CloseButton = styled.button`
+  display: none;
+  background: none;
   border: none;
-  border-radius: 9999px;
-  background-color: rgba(100, 100, 100, 0.2); /* semi-transparent gray */
-  color: #e5e7eb; /* light text (gray-200) */
-  backdrop-filter: blur(4px); /* optional: for glass effect */
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  outline: none;
-}
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 
-.searchInput::placeholder {
-  color: rgba(229, 231, 235, 0.5); /* semi-transparent placeholder */
-}
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
 
+
+export const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  gap: 0.5rem;
 
   .searchIcon {
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #6b7280;
-    pointer-events: none;
+    color: #888;
+    font-size: 1rem;
+  }
+`;
+
+export const SearchInput = styled.input`
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  width: 150px;
+`;
+
+export const ProfileContainer = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const ProfileIcon = styled.img`
+  height: 30px;
+  border-radius: 50%;
+`;
+
+export const BurgerMenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const BurgerMenuItems = styled.div<{ open: boolean }>`
+  display: ${({ open }) => (open ? 'flex' : 'none')};
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1rem;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 200px;
+  z-index: 1000;
+
+  a {
+    color: white;
+    padding: 0.5rem 0;
+    text-decoration: none;
+
+    &.active {
+      color: #ff6600;
+    }
   }
 `;
