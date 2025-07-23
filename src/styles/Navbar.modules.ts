@@ -113,6 +113,7 @@ export const MovieInfo = styled.div`
   position: absolute;
   bottom: 4rem;
   left: 2rem;
+  width: fit-content;
   max-width: 50%;
   color: white;
   z-index: 10;
@@ -120,7 +121,7 @@ export const MovieInfo = styled.div`
   flex-direction: column;
   gap: 1rem;
 
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+  background: rgba(24, 24, 24, 0.9);
   padding: 2rem;
   border-radius: 8px;
 
@@ -169,6 +170,18 @@ export const BurgerMenuButton = styled.button`
 `;
 
 export const InfoButtons = styled.div`
+  background-color: #ff6600;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  width: fit-content;
+
+  &:hover {
+    background-color: #e65c00;
+  }
 `;
 
 
