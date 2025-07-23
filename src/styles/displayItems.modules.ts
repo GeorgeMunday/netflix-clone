@@ -55,8 +55,8 @@ export const ItemCard = styled.div`
 
   img {
     width: 100%;
-    border-radius: 6px;
     display: block;
+    border-radius: 6px 6px 0 0 ;
   }
 
   h3 {
@@ -65,6 +65,7 @@ export const ItemCard = styled.div`
     font-weight: 500;
     margin: 0.5rem 0 0.25rem 0;
     padding: 0 0.5rem;
+    border-radius: 6px;
   }
 
   span {
@@ -76,7 +77,7 @@ export const ItemCard = styled.div`
     font-weight: bold;
     font-size: 0.75rem;
     padding: 0.3rem 0.5rem;
-    border-radius: 0 0 0 10px;
+    border-radius: 0 6px 0 6px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
     z-index: 1;
     transition: opacity 0.2s ease;
