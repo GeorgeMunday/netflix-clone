@@ -1,5 +1,5 @@
 
-import {trendingShows, popularShows} from '../modules/ApiLinks';
+import {trendingShows, popularShows , airing_today} from '../modules/ApiLinks';
 import { createDisplayItems, type ItemCatagory } from '../modules/types_files';
 import DisplayItems from '../components/displayItems'; 
 import { PageContainer } from '../styles/Pages.modules';
@@ -7,6 +7,7 @@ import { PageContainer } from '../styles/Pages.modules';
 const chooseWhatToDisplay: ItemCatagory[] = [
   createDisplayItems(trendingShows, 'Trending Shows'),
   createDisplayItems(popularShows, 'Popular Shows'),
+  createDisplayItems(airing_today, 'Airing Today')
 ];
 
 
