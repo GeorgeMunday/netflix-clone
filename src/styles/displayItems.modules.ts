@@ -47,6 +47,10 @@ export const ItemCard = styled.div`
   &:hover {
     transform: scale(1.08);
     z-index: 2;
+
+    span {
+      opacity: 0;
+    }
   }
 
   img {
@@ -64,7 +68,18 @@ export const ItemCard = styled.div`
   }
 
   span {
-    display: none; // Hidden to match Netflix simplicity
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    background-color: #ff6600;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0 0 0 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: opacity 0.2s ease;
   }
 
   p {
