@@ -7,6 +7,7 @@ export const NavbarWrapper = styled.div<{ backgroundImage?: string }>`
   min-height: 100vh;
   width: 100%;
   font-family: 'Arial Black', sans-serif;
+  background-color: black;
 `;
 
 export const NavbarContainer = styled.div`
@@ -14,8 +15,8 @@ export const NavbarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   position: sticky;
   top: 0;
@@ -24,7 +25,8 @@ export const NavbarContainer = styled.div`
 
 export const LogoContainer = styled.div`
   img {
-    height: 40px;
+    height: 45px;
+    filter: brightness(1.2);
   }
 `;
 
@@ -33,18 +35,18 @@ export const NavLinks = styled.div`
   gap: 2rem;
 
   a {
-    color: #ccc;
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: color 0.2s;
 
     &.active {
-      color: #ff6600; // orange for active tab
+      color: #ff6600;
     }
 
     &:hover {
-      color: white;
+      color: #fff;
     }
   }
 
@@ -66,26 +68,31 @@ export const CloseButton = styled.button`
   }
 `;
 
-
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
-  background: #fff;
-  padding: 0.25rem 0.5rem;
+  background: #333;
+  padding: 0.4rem 0.75rem;
   border-radius: 20px;
   gap: 0.5rem;
 
   .searchIcon {
-    color: #888;
+    color: #aaa;
     font-size: 1rem;
   }
 `;
 
 export const SearchInput = styled.input`
   border: none;
+  background: transparent;
   outline: none;
   font-size: 0.9rem;
+  color: white;
   width: 150px;
+
+  &::placeholder {
+    color: #aaa;
+  }
 `;
 
 export const ProfileContainer = styled.div`
@@ -95,38 +102,54 @@ export const ProfileContainer = styled.div`
 `;
 
 export const ProfileIcon = styled.img`
-  height: 30px;
+  height: 32px;
+  width: 32px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
 `;
 
 export const MovieInfo = styled.div`
   position: absolute;
-  bottom: 2rem;
+  bottom: 4rem;
   left: 2rem;
-  max-width: 600px;
+  max-width: 50%;
   color: white;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+  padding: 2rem;
+  border-radius: 8px;
 
   h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
   }
 
   p {
-    font-size: 1rem;
-    line-height: 1.4;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    max-width: 90%;
+    color: #e5e5e5;
   }
 
   @media (max-width: 768px) {
     bottom: 1rem;
     left: 1rem;
+    max-width: 90%;
+    padding: 1rem;
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
 
     p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
   }
 `;
@@ -145,13 +168,41 @@ export const BurgerMenuButton = styled.button`
   }
 `;
 
-export const infoBtn = styled.button``;
+export const InfoButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  button {
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e6e6e6;
+    }
+
+    &.more-info {
+      background-color: rgba(109, 109, 110, 0.7);
+      color: white;
+
+      &:hover {
+        background-color: rgba(109, 109, 110, 0.4);
+      }
+    }
+  }
+`;
 
 
 export const BurgerMenuItems = styled.div<{ open: boolean }>`
   display: ${({ open }) => (open ? 'flex' : 'none')};
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.95);
   padding: 1rem;
   position: absolute;
   top: 70px;
@@ -161,10 +212,16 @@ export const BurgerMenuItems = styled.div<{ open: boolean }>`
 
   a {
     color: white;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
     text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
 
     &.active {
+      color: #ff6600;
+    }
+
+    &:hover {
       color: #ff6600;
     }
   }

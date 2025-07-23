@@ -17,8 +17,8 @@ import {
   BurgerMenuItems,
   CloseButton,
   MovieInfo,
-  infoBtn
-} from '../styles/Navbar.modules';
+  InfoButtons
+} from '../styles/Navbar.modules.ts';
 
 const Navbar = () => {
   const [movieData, setMovieData] = useState({
@@ -108,7 +108,7 @@ const Navbar = () => {
         <MovieInfo>
             <h1>{movieData.title}</h1>
             <p>{movieData.overview}</p>
-            <button className={infoBtn}>More Info</button>
+            <InfoButtons>more info</InfoButtons>
         </MovieInfo>
     </NavbarWrapper>
   );
