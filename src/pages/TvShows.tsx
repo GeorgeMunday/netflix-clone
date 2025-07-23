@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {trendingShows, popularShows} from '../modules/ApiLinks';
 import { createDisplayItems, type ItemCatagory } from '../modules/types_files';
 import DisplayItems from '../components/displayItems'; 
