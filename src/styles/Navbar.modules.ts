@@ -6,6 +6,7 @@ export const NavbarWrapper = styled.div<{ backgroundImage?: string }>`
   background-position: center;
   min-height: 100vh;
   width: 100%;
+  font-family: 'Arial Black', sans-serif;
 `;
 
 export const NavbarContainer = styled.div`

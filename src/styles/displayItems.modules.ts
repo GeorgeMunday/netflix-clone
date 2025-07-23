@@ -1,8 +1,8 @@
-// styles/displayItems.modules.ts
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  padding: 2rem;
+  padding: 2rem 0;
+  background: linear-gradient(to bottom, #111, #000);
 `;
 
 export const Section = styled.section`
@@ -10,48 +10,67 @@ export const Section = styled.section`
 `;
 
 export const Heading = styled.h2`
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 2rem 1rem 2rem;
 `;
 
 export const ItemsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 2rem;
+  gap: 1rem;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ff6600;
+    border-radius: 4px;
+  }
 `;
 
 export const ItemCard = styled.div`
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #f8f8f8;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.2s ease;
+  min-width: 180px;
+  max-width: 220px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  background-color: #181818;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
 
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.08);
+    z-index: 2;
   }
 
   img {
     width: 100%;
-    height: auto;
+    border-radius: 6px;
     display: block;
   }
 
   h3 {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0.5rem 0 0.25rem 0;
+    padding: 0 0.5rem;
   }
 
   span {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 0.25rem;
+    display: none; // Hidden to match Netflix simplicity
   }
 
   p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    color: #aaa;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    line-height: 1.3;
   }
 `;
