@@ -11,12 +11,12 @@ export const NavbarWrapper = styled.div<{ backgroundImage?: string }>`
 `;
 
 export const NavbarContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
-  justify-content: space-between;
+  gap: 2rem;
   padding: 1rem 2rem;
-  backdrop-filter: blur(10px);
-  background-color: #181818;
+  background-color: rgba(24, 24, 24, 1); /* semi-transparent */
   color: white;
   position: sticky;
   top: 0;
@@ -107,6 +107,7 @@ export const ProfileIcon = styled.img`
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #fff;
+  cursor: pointer;
 `;
 
 export const MovieInfo = styled.div`

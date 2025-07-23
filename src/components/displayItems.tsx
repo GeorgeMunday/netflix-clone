@@ -26,7 +26,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ apiEndpoint, itemsHea
     const fetchData = async () => {
       try {
         const response = await axios.get(apiEndpoint);
-        setApiData(response.data.results.slice(0, 10)); // Limit to 10 items for display
+        setApiData(response.data.results.slice(0, 20)); // Limit to 10 items for display
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -46,8 +46,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ apiEndpoint, itemsHea
               alt={item.title || item.name}
             />
             <h3>{item.title || item.name}</h3>
-            <span>Rating: {item.vote_average.toFixed(1)}</span>
-            <p>{item.media_type}</p>
+            <span>Rating {item.vote_average.toFixed(1)}</span>
           </ItemCard>
         ))}
       </ItemsContainer>

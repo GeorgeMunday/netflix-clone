@@ -17,7 +17,7 @@ import {
   BurgerMenuItems,
   CloseButton,
   MovieInfo,
-  InfoButtons
+  InfoButtons,
 } from '../styles/Navbar.modules.ts';
 
 const Navbar = () => {
