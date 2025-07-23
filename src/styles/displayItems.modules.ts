@@ -16,6 +16,38 @@ export const Heading = styled.h2`
   margin: 0 2rem 1rem 2rem;
 `;
 
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+`;
+
+export const ModalContent = styled.div`
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
 export const ItemsContainer = styled.div`
   display: flex;
   overflow-x: auto;
