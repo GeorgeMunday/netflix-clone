@@ -16,7 +16,7 @@ export const NavbarContainer = styled.div`
   justify-content: space-between;
   padding: 1rem 2rem;
   backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.6);
+  background-color: #181818;
   color: white;
   position: sticky;
   top: 0;
@@ -169,33 +169,6 @@ export const BurgerMenuButton = styled.button`
 `;
 
 export const InfoButtons = styled.div`
-  display: flex;
-  gap: 1rem;
-
-  button {
-    background-color: #fff;
-    color: #000;
-    font-weight: 600;
-    padding: 0.6rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #e6e6e6;
-    }
-
-    &.more-info {
-      background-color: rgba(109, 109, 110, 0.7);
-      color: white;
-
-      &:hover {
-        background-color: rgba(109, 109, 110, 0.4);
-      }
-    }
-  }
 `;
 
 
