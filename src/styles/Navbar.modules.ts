@@ -131,6 +131,7 @@ export const MovieInfo = styled.div`
     font-weight: 800;
     margin: 0;
     line-height: 1.2;
+    transition: font-size 0.7s;
   }
 
   p {
@@ -138,20 +139,23 @@ export const MovieInfo = styled.div`
     line-height: 1.5;
     max-width: 90%;
     color: #e5e5e5;
+    transition: display 0.7s;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     bottom: 1rem;
     left: 1rem;
     max-width: 90%;
-    padding: 1rem;
+    padding: 3rem;
+    background: rgba(24, 24, 24, 0.8);
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
     p {
-      font-size: 0.95rem;
+      display: none;
     }
   }
 `;
