@@ -1,6 +1,14 @@
+// DisplayItems.tsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { type ItemCatagory, type DataTypes } from '../modules/types_files';
+import {
+  Wrapper,
+  Section,
+  Heading,
+  ItemsContainer,
+  ItemCard,
+} from '../styles/displayItems.modules';
 
 interface DisplayItemsProps {
   displayItemsTags: ItemCatagory[];
@@ -28,25 +36,28 @@ const CategorySection: React.FC<CategorySectionProps> = ({ apiEndpoint, itemsHea
   }, [apiEndpoint]);
 
   return (
-    <div>
-      <h2>{itemsHeading}</h2>
-      <div className="items-container">
+    <Section>
+      <Heading>{itemsHeading}</Heading>
+      <ItemsContainer>
         {apiData.map((item) => (
-          <div key={item.id} className="item-card">
-            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title || item.name} />
+          <ItemCard key={item.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              alt={item.title || item.name}
+            />
             <h3>{item.title || item.name}</h3>
             <span>Rating: {item.vote_average.toFixed(1)}</span>
             <p>{item.media_type}</p>
-          </div>
+          </ItemCard>
         ))}
-      </div>
-    </div>
+      </ItemsContainer>
+    </Section>
   );
 };
 
 const DisplayItems: React.FC<DisplayItemsProps> = ({ displayItemsTags }) => {
   return (
-    <div>
+    <Wrapper>
       {displayItemsTags.map((item, index) => (
         <CategorySection
           key={index}
@@ -54,7 +65,7 @@ const DisplayItems: React.FC<DisplayItemsProps> = ({ displayItemsTags }) => {
           itemsHeading={item.itemHeading}
         />
       ))}
-    </div>
+    </Wrapper>
   );
 };
 

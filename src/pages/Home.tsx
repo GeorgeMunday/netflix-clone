@@ -2,6 +2,7 @@
 import { popular, now_playing, upcoming, trendingShows, popularShows, airing_today } from '../modules/ApiLinks';
 import { createDisplayItems, type ItemCatagory } from '../modules/types_files';
 import DisplayItems from '../components/displayItems'; 
+import { PageContainer } from '../styles/Pages.modules';
 
 const Home = () => {
   const chooseWhatToDisplay: ItemCatagory[] = [
@@ -14,9 +15,9 @@ const Home = () => {
   ];
 
   return (
-    <>
+    <PageContainer>
       <DisplayItems displayItemsTags={chooseWhatToDisplay} />
-    </>
+    </PageContainer>
   );
 };
 

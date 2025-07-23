@@ -2,7 +2,7 @@
 import { popular, now_playing, upcoming,airing_today } from '../modules/ApiLinks';
 import { createDisplayItems, type ItemCatagory } from '../modules/types_files';
 import DisplayItems from '../components/displayItems'; 
-
+import { PageContainer } from '../styles/Pages.modules';
 
 
 const Movies = () => {
@@ -14,9 +14,9 @@ const Movies = () => {
   ];
 
   return (
-    <>
+    <PageContainer>
       <DisplayItems displayItemsTags={chooseWhatToDisplay} />
-    </>
+    </PageContainer>
   );
 };
 
