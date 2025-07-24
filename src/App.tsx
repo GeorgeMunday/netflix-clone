@@ -5,7 +5,7 @@ import Movies from './pages/Movies';
 import TvShows from './pages/TvShows';
 import SearchBar from './pages/SearchBar';
 import Spinner from './components/spinner';
-import ItemPage from './components/itemsInformation';
+import ItemPage from './pages/Information';
 
 function App() {
 

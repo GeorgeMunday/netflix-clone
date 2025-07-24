@@ -32,7 +32,7 @@ export const SearchContainer = styled.div`
 
     &:focus {
       outline: none;
-      box-shadow: ;none
+      box-shadow: none;
       color: #fff;
     }
   }

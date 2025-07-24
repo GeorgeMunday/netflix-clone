@@ -38,7 +38,7 @@ const Navbar = () => {
           backdropPath: `https://image.tmdb.org/t/p/original${randomMedia.backdrop_path}`,
           title: randomMedia.title || randomMedia.name || 'Untitled',
           overview: randomMedia.overview || 'No overview available.',
-          id: randomMedia.id,    // <-- save id here
+          id: randomMedia.id,
         });
       }
     } catch (error) {

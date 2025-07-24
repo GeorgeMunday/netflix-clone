@@ -11,6 +11,19 @@ export interface DataTypes {
     media_type: string;
 }
 
+export interface Trailer {
+  id: string;
+  key: string;
+  name: string;
+  site: string;
+  type: string;
+}
+
+export interface TrailerResponse {
+  id: number;
+  results: Trailer[];
+}
+
 
 
 export interface ItemCatagory {
