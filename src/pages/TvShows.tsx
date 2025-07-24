@@ -3,6 +3,7 @@ import {trendingShows, popularShows , airing_today} from '../modules/ApiLinks';
 import { createDisplayItems, type ItemCatagory } from '../modules/types_files';
 import DisplayItems from '../components/displayItems'; 
 import { PageContainer } from '../styles/Pages.modules';
+import Navbar from '../components/Navbar';
 
 const chooseWhatToDisplay: ItemCatagory[] = [
   createDisplayItems(trendingShows, 'Trending Shows'),
@@ -14,9 +15,12 @@ const chooseWhatToDisplay: ItemCatagory[] = [
 
 const TvShows = () => {
   return (
+    <>
+    <Navbar/>
     <PageContainer>
       <DisplayItems displayItemsTags={chooseWhatToDisplay} />
     </PageContainer>
+    </>
   )
 }
 

@@ -51,10 +51,17 @@ const LinksBar = () => {
             }}
           >
             Tv Shows
+          </NavLink>   
+          <NavLink
+            to="/searchbar"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent React Router navigation
+              window.location.href = '/searchbar'; // Force full-page reload
+            }}
+          >
+            Searchbar
           </NavLink>
-          <NavLink to="searchbar" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => setMenuOpen(false)}>
-              Search Bar
-          </NavLink>
+          
         </NavLinks>
         <ProfileContainer>
           <ProfileIcon src={user} alt="User" />

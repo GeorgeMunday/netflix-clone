@@ -1,5 +1,13 @@
+import LinksBar from "../components/linksBar";
+import { PageContainer } from "../styles/Pages.modules";
+
 const SearchBar = () => {
-  return <h1>Search Page</h1>;
+  return (
+    <PageContainer>
+    <LinksBar/>
+    <h1></h1>
+    </PageContainer>
+  )
 };
 
 export default SearchBar;
