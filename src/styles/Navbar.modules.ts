@@ -67,33 +67,6 @@ export const CloseButton = styled.button`
   }
 `;
 
-export const SearchContainer = styled.div`
-  display: flex;
-  align-items: center;
-  background: #333;
-  padding: 0.4rem 0.75rem;
-  border-radius: 20px;
-  gap: 0.5rem;
-
-  .searchIcon {
-    color: #aaa;
-    font-size: 1rem;
-  }
-`;
-
-export const SearchInput = styled.input`
-  border: none;
-  background: transparent;
-  outline: none;
-  font-size: 0.9rem;
-  color: white;
-  width: 150px;
-
-  &::placeholder {
-    color: #aaa;
-  }
-`;
-
 export const ProfileContainer = styled.div`
   @media (max-width: 768px) {
     display: none;

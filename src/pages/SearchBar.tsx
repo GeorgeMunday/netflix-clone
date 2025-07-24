@@ -1,7 +1,7 @@
 import { useState, useEffect, type ChangeEvent } from "react";
 import LinksBar from "../components/linksBar";
 import { PageContainer } from "../styles/Pages.modules";
-import { SearchContainer } from "../styles/Navbar.modules";
+import { SearchContainer } from "../styles/searchbar.modules";
 import { apiKey, baseUrl } from "../modules/ApiLinks";
 import DisplayItems from "../components/displayItems";
 import { type ItemCatagory } from "../modules/types_files";
@@ -33,7 +33,7 @@ const SearchBar = () => {
     <PageContainer>
       <LinksBar />
       <SearchContainer>
-        <div>
+        <div className="centered">
           <span className="material-symbols-outlined searchIcon">search</span>
           <input
             type="text"
@@ -45,9 +45,11 @@ const SearchBar = () => {
         </div>
       </SearchContainer>
 
-      {displayItemsTags.length > 0 && (
-        <DisplayItems displayItemsTags={displayItemsTags} />
-      )}
+      {displayItemsTags.length > 0 ? (
+      <DisplayItems displayItemsTags={displayItemsTags} />
+    ) : (
+      query.length === 0 && <p style={{ textAlign: "center", marginTop: "20px" }}>Start searching!</p>
+    )}
     </PageContainer>
   );
 };

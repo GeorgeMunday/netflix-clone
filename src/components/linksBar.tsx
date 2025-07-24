@@ -59,7 +59,7 @@ const LinksBar = () => {
               window.location.href = '/searchbar'; // Force full-page reload
             }}
           >
-            Searchbar
+            Search
           </NavLink>
           
         </NavLinks>

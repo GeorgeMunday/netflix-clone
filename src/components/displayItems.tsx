@@ -9,6 +9,7 @@ import {
   ItemCard,
 } from '../styles/displayItems.modules';
 import ItemInformation from './itemsInformation';
+import fallbackImage from '../assets/no-result.png'
 
 interface DisplayItemsProps {
   displayItemsTags: ItemCatagory[];
@@ -42,7 +43,10 @@ const CategorySection: React.FC<CategorySectionProps> = ({ apiEndpoint, itemsHea
       <ItemsContainer>
         {apiData.map((item) => (
           <ItemCard key={item.id} onClick={() => onItemClick(item)}>
-            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title || item.name} />
+            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title || item.name} onError={(e) => {
+                e.currentTarget.src = fallbackImage;
+                e.currentTarget.onerror = null;
+              }}/>
             <h3>{item.title || item.name}</h3>
             <span>Rating {item.vote_average.toFixed(1)}</span>
           </ItemCard>
