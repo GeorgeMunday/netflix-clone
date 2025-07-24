@@ -25,14 +25,32 @@ const LinksBar = () => {
         </LogoContainer>
 
         <NavLinks>
-          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
+          <NavLink
+            to="/"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent React Router navigation
+              window.location.href = '/'; // Force full-page reload
+            }}
+          >
             Home
           </NavLink>
-          <NavLink to="/movies" className={({ isActive }) => (isActive ? 'active' : '')}>
+          <NavLink
+            to="/movies"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent React Router navigation
+              window.location.href = '/movies'; // Force full-page reload
+            }}
+          >
             Movies
           </NavLink>
-          <NavLink to="/tvshows" className={({ isActive }) => (isActive ? 'active' : '')}>
-            TV Shows
+          <NavLink
+            to="/tvshows"
+            onClick={(e) => {
+              e.preventDefault(); // Prevent React Router navigation
+              window.location.href = '/tvshows'; // Force full-page reload
+            }}
+          >
+            Tv Shows
           </NavLink>
           <NavLink to="searchbar" className={({ isActive }) => (isActive ? 'active' : '')} onClick={() => setMenuOpen(false)}>
               Search Bar

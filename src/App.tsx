@@ -1,15 +1,32 @@
-import { Routes, Route } from 'react-router-dom';
-
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import TvShows from './pages/TvShows';
 import SearchBar from './pages/SearchBar';
+import Spinner from './components/spinner';
 
 function App() {
 
+  const [loading, setLoading] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Start loading when location changes
+    setLoading(true);
+
+    // Simulate data load delay
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // You can adjust this delay
+
+    return () => clearTimeout(timeout);
+  }, [location]);
+
   return (
     <>
+    {loading && <Spinner/>}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
