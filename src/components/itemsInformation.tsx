@@ -6,14 +6,20 @@ import { InfoWrapper } from '../styles/Information.modules';
 
 interface ItemInformationProps {
   item: DataTypes;
+  onClose: () => void;
 }
 
 
 
-const ItemInformation: React.FC<ItemInformationProps> = () => {
+const ItemInformation: React.FC<ItemInformationProps> = ({ item, onClose }) => {
   return (
     <InfoWrapper>
-      hello
+      <button onClick={onClose}>Close</button>
+      <h2>{item.title || item.name}</h2>
+      <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title || item.name} />
+      <p><strong>Rating:</strong> {item.vote_average.toFixed(1)}</p>
+      <p><strong>Overview:</strong> {item.overview}</p>
+      {/* Add more item details as needed */}
     </InfoWrapper>
   );
 };
