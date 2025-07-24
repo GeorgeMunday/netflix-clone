@@ -7,7 +7,6 @@ export const NavbarWrapper = styled.div<{ backgroundImage?: string }>`
   min-height: 100vh;
   width: 100%;
   font-family: 'Arial Black', sans-serif;
-  background-color: black;
 `;
 
 export const NavbarContainer = styled.div`
@@ -112,10 +111,12 @@ export const ProfileIcon = styled.img`
 
 export const MovieInfo = styled.div`
   position: absolute;
-  bottom: 4rem;
+  bottom: 2rem;
   left: 2rem;
-  width: fit-content;
-  max-width: 50%;
+  width: 70%;
+  max-width: 70%;
+  max height: 50%
+  height: 50%;
   color: white;
   z-index: 10;
   display: flex;
@@ -127,7 +128,7 @@ export const MovieInfo = styled.div`
   border-radius: 8px;
 
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 800;
     margin: 0;
     line-height: 1.2;
@@ -144,8 +145,7 @@ export const MovieInfo = styled.div`
 
   @media (max-width: 1000px) {
     bottom: 1rem;
-    left: 1rem;
-    max-width: 90%;
+    max-width: 100%;
     padding: 3rem;
     background: rgba(24, 24, 24, 0.8);
 

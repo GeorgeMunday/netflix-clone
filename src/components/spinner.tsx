@@ -12,7 +12,7 @@ const SpinnerWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: #ff6600;
+  background: rgba(0,0,0,0.9);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ const SpinnerWrapper = styled.div`
 `;
 
 const SpinnerCircle = styled.div`
-  border: 8px solid #000;
+  border: 8px solid #f3f3f3;
   border-top: 8px solid #ff6600;
   border-radius: 50%;
   width: 60px;

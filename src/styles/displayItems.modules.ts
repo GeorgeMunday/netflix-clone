@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   padding: 2rem 0;
-  background: linear-gradient(to bottom, #111, #000);
 `;
 
 export const Section = styled.section`

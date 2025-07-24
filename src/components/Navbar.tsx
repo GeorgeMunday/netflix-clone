@@ -59,7 +59,7 @@ const Navbar = () => {
       <LinksBar/>
         <MovieInfo>
             <h1>{movieData.title}</h1>
-            <p>{movieData.overview}</p>
+            <p>{movieData.overview.split(" ").slice(0, 25).join(" ")}...</p>
             <InfoButtons>more info</InfoButtons>
         </MovieInfo>
     </NavbarWrapper>
