@@ -33,7 +33,6 @@ function App() {
         <Route path="movies" element={<Movies />}/>
         <Route path="tvshows" element={<TvShows />}/>
         <Route path="searchbar" element={<SearchBar/>}></Route>
-        <Route path="infomation"></Route>
       </Routes>
     </>
   )
