@@ -5,6 +5,7 @@ import Movies from './pages/Movies';
 import TvShows from './pages/TvShows';
 import SearchBar from './pages/SearchBar';
 import Spinner from './components/spinner';
+import ItemPage from './components/itemsInformation';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="movies" element={<Movies />}/>
         <Route path="tvshows" element={<TvShows />}/>
         <Route path="searchbar" element={<SearchBar/>}></Route>
+        <Route path="/item/:id" element={<ItemPage />} />
       </Routes>
     </>
   )

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';  // <-- import useNavigate
 import axios from 'axios';
 import { baseUrl, popularShows, apiKey, popular } from '../modules/ApiLinks';
 import LinksBar from './linksBar.tsx';
@@ -13,9 +14,10 @@ const Navbar = () => {
     backdropPath: '',
     title: '',
     overview: '',
+    id: null as number | null,      // <-- add id here
   });
 
-
+  const navigate = useNavigate();   // <-- initialize navigate
 
   const fetchData = async (page: string) => {
     let url = `${baseUrl}/${page}?api_key=${apiKey}`;
@@ -36,6 +38,7 @@ const Navbar = () => {
           backdropPath: `https://image.tmdb.org/t/p/original${randomMedia.backdrop_path}`,
           title: randomMedia.title || randomMedia.name || 'Untitled',
           overview: randomMedia.overview || 'No overview available.',
+          id: randomMedia.id,    // <-- save id here
         });
       }
     } catch (error) {
@@ -54,14 +57,21 @@ const Navbar = () => {
     }
   }, []);
 
+  // Handler for More Info button
+  const handleMoreInfoClick = () => {
+    if (movieData.id) {
+      navigate(`/item/${movieData.id}`);
+    }
+  };
+
   return (
     <NavbarWrapper backgroundImage={movieData.backdropPath}>
-      <LinksBar/>
-        <MovieInfo>
-            <h1>{movieData.title}</h1>
-            <p>{movieData.overview.split(" ").slice(0, 25).join(" ")}...</p>
-            <InfoButtons>more info</InfoButtons>
-        </MovieInfo>
+      <LinksBar />
+      <MovieInfo>
+        <h1>{movieData.title}</h1>
+        <p>{movieData.overview.split(' ').slice(0, 25).join(' ')}...</p>
+        <InfoButtons onClick={handleMoreInfoClick}>more info</InfoButtons>
+      </MovieInfo>
     </NavbarWrapper>
   );
 };

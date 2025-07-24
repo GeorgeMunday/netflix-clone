@@ -8,8 +8,8 @@ import {
   ItemsContainer,
   ItemCard,
 } from '../styles/displayItems.modules';
-import ItemInformation from './itemsInformation';
-import fallbackImage from '../assets/no-result.png'
+import fallbackImage from '../assets/no-result.png';
+import { useNavigate } from 'react-router-dom';
 
 interface DisplayItemsProps {
   displayItemsTags: ItemCatagory[];
@@ -21,7 +21,11 @@ interface CategorySectionProps {
   onItemClick: (item: DataTypes) => void;
 }
 
-const CategorySection: React.FC<CategorySectionProps> = ({ apiEndpoint, itemsHeading, onItemClick }) => {
+const CategorySection: React.FC<CategorySectionProps> = ({
+  apiEndpoint,
+  itemsHeading,
+  onItemClick,
+}) => {
   const [apiData, setApiData] = useState<DataTypes[]>([]);
 
   useEffect(() => {
@@ -43,10 +47,14 @@ const CategorySection: React.FC<CategorySectionProps> = ({ apiEndpoint, itemsHea
       <ItemsContainer>
         {apiData.map((item) => (
           <ItemCard key={item.id} onClick={() => onItemClick(item)}>
-            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.title || item.name} onError={(e) => {
+            <img
+              src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              alt={item.title || item.name}
+              onError={(e) => {
                 e.currentTarget.src = fallbackImage;
                 e.currentTarget.onerror = null;
-              }}/>
+              }}
+            />
             <h3>{item.title || item.name}</h3>
             <span>Rating {item.vote_average.toFixed(1)}</span>
           </ItemCard>
@@ -57,14 +65,10 @@ const CategorySection: React.FC<CategorySectionProps> = ({ apiEndpoint, itemsHea
 };
 
 const DisplayItems: React.FC<DisplayItemsProps> = ({ displayItemsTags }) => {
-  const [selectedItem, setSelectedItem] = useState<DataTypes | null>(null);
+  const navigate = useNavigate();
 
   const handleItemClick = (item: DataTypes) => {
-    setSelectedItem(item);
-  };
-
-  const handleClose = () => {
-    setSelectedItem(null);
+    navigate(`/item/${item.id}`);
   };
 
   return (
@@ -77,8 +81,6 @@ const DisplayItems: React.FC<DisplayItemsProps> = ({ displayItemsTags }) => {
           onItemClick={handleItemClick}
         />
       ))}
-
-      {selectedItem && <ItemInformation item={selectedItem} onClose={handleClose} />}
     </Wrapper>
   );
 };
