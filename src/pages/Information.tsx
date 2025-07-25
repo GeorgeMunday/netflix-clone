@@ -20,6 +20,7 @@ const ItemPage: React.FC = () => {
   const navigate = useNavigate();
   const [item, setItem] = useState<DataTypes | null>(null);
   const [trailers, setTrailers] = useState<Trailer[]>([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -33,7 +34,9 @@ const ItemPage: React.FC = () => {
 
     const fetchTrailers = async () => {
       try {
-        const response = await axios.get<TrailerResponse>(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}`);
+        const response = await axios.get<TrailerResponse>(
+          `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}`
+        );
         const officialTrailers = response.data.results.filter(
           (video) => video.type === 'Trailer' && video.site === 'YouTube'
         );
@@ -51,6 +54,8 @@ const ItemPage: React.FC = () => {
 
   if (!item) return <p>Loading...</p>;
 
+  const visibleTrailers = showAll ? trailers : trailers.slice(0, 2);
+
   return (
     <PageContainer>
       <ItemWrapper>
@@ -62,32 +67,13 @@ const ItemPage: React.FC = () => {
         </ImageSection>
 
         <InfoSection>
-          <BackButton onClick={() => navigate(-1)}>← </BackButton>
+          <BackButton onClick={() => navigate(-1)}>←</BackButton>
           <Title>{item.title || item.name}</Title>
           <Rating><strong>Rating:</strong> {item.vote_average.toFixed(1)}</Rating>
           <Overview>{item.overview}</Overview>
+          
         </InfoSection>
       </ItemWrapper>
-
-      {trailers.length > 0 && (
-        <TrailerSection>
-          <h3>Trailers</h3>
-          {trailers.map((trailer) => (
-            <div key={trailer.id}>
-              <h4>{trailer.name}</h4>
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${trailer.key}`}
-                title={trailer.name}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          ))}
-        </TrailerSection>
-      )}
     </PageContainer>
   );
 };

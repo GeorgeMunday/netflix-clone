@@ -88,7 +88,7 @@ export const MovieInfo = styled.div`
   left: 2rem;
   width: 70%;
   max-width: 70%;
-  max height: 50%
+  max-height: 50%;
   height: 50%;
   color: white;
   z-index: 10;
