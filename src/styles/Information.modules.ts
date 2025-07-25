@@ -33,7 +33,7 @@ export const ImageSection = styled.div`
 
     &:hover {
       transform: scale(1.03);
-      box-shadow: 0 10px 40px rgba(229, 9, 20, 0.6);
+      box-shadow: 0 10px 40px #ff6600;
     }
   }
 `;
@@ -86,8 +86,8 @@ export const Overview = styled.p`
 
 export const BackButton = styled.button`
   background: transparent;
-  border: 2px solid #e50914;
-  color: #e50914;
+  border: 2px solid #ff6600;
+  color: #ff6600;
   padding: 0.6rem 1.4rem;
   border-radius: 6px;
   font-size: 1rem;
@@ -97,7 +97,7 @@ export const BackButton = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #e50914;
+    background-color: #ff6600;
     color: #fff;
   }
 
@@ -118,7 +118,7 @@ export const TrailerSection = styled.section`
     font-size: 2.2rem;
     margin-bottom: 2rem;
     color: #fff;
-    border-bottom: 3px solid #e50914;
+    border-bottom: 3px solid #ff6600;
     padding-bottom: 0.5rem;
     display: inline-block;
   }
@@ -143,8 +143,8 @@ export const TrailerSection = styled.section`
 
   button {
     background: transparent;
-    border: 2px solid #e50914;
-    color: #e50914;
+    border: 2px solid #ff6600;
+    color: #ff6600;
     padding: 0.5rem 1.3rem;
     border-radius: 6px;
     font-weight: 600;
@@ -152,7 +152,7 @@ export const TrailerSection = styled.section`
     transition: all 0.3s ease;
 
     &:hover {
-      background-color: #e50914;
+      background-color: #ff6600;
       color: white;
     }
   }

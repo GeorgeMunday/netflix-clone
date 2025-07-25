@@ -89,7 +89,6 @@ export const MovieInfo = styled.div`
   width: 70%;
   max-width: 70%;
   max-height: 50%;
-  height: 50%;
   color: white;
   z-index: 10;
   display: flex;
