@@ -71,9 +71,30 @@ const ItemPage: React.FC = () => {
           <Title>{item.title || item.name}</Title>
           <Rating><strong>Rating:</strong> {item.vote_average.toFixed(1)}</Rating>
           <Overview>{item.overview}</Overview>
-          
         </InfoSection>
       </ItemWrapper>
+
+      {trailers.length > 0 && (
+        <TrailerSection>
+          <h3>Trailers</h3>
+          {visibleTrailers.map((trailer) => (
+            <div key={trailer.id}>
+              <h4>{trailer.name}</h4>
+              <iframe
+                src={`https://www.youtube.com/embed/${trailer.key}`}
+                title={trailer.name}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ))}
+          {trailers.length > 2 && (
+            <button onClick={() => setShowAll(!showAll)}>
+              {showAll ? 'Show Less' : 'Show All'}
+            </button>
+          )}
+        </TrailerSection>
+      )}
     </PageContainer>
   );
 };

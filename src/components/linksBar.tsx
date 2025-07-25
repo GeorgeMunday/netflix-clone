@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import user from '../assets/user.png';
+import user from '../assets/github.png';
 
 import {
   NavbarContainer,
@@ -64,8 +64,11 @@ const LinksBar = () => {
           
         </NavLinks>
         <ProfileContainer>
-          <ProfileIcon src={user} alt="User" />
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <ProfileIcon src={user} alt="User" />
+          </a>
         </ProfileContainer>
+
 
         <BurgerMenuButton onClick={() => setMenuOpen(prev => !prev)}>
         ☰
