@@ -36,7 +36,7 @@ const Navbar = () => {
       if (randomMedia && randomMedia.backdrop_path) {
         setMovieData({
           backdropPath: `https://image.tmdb.org/t/p/original${randomMedia.backdrop_path}`,
-          title: randomMedia.title || randomMedia.name || 'Untitled',
+          title: randomMedia.title || randomMedia.name || 'not found',
           overview: randomMedia.overview || 'No overview available.',
           id: randomMedia.id,
         });

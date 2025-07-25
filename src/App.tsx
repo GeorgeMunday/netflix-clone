@@ -19,7 +19,7 @@ function App() {
     // Simulate data load delay
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 200); // You can adjust this delay
+    }, 500); // You can adjust this delay
 
     return () => clearTimeout(timeout);
   }, [location]);
