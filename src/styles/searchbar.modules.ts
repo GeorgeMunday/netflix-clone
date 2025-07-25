@@ -41,3 +41,22 @@ export const SearchContainer = styled.div`
     color: #e65c00;
   }
 `
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 16px;
+`;
+
+export const ItemCard = styled.div`
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+`;

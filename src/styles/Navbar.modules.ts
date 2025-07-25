@@ -10,11 +10,11 @@ export const NavbarWrapper = styled.div<{ backgroundImage?: string }>`
 `;
 
 export const NavbarContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  display: flex;
   align-items: center;
-  gap: 2rem;
-  padding: 1rem 2rem;
+  justify-content: space-between; /* pushes items to edges */
+  padding: 1rem;
+  background-color: #181818;
   background-color: rgba(24, 24, 24, 1); /* semi-transparent */
   color: white;
   position: sticky;
@@ -32,6 +32,7 @@ export const LogoContainer = styled.div`
 export const NavLinks = styled.div`
   display: flex;
   gap: 2rem;
+  justify-content: center;
 
   a {
     color: #fff;
@@ -52,19 +53,15 @@ export const NavLinks = styled.div`
   @media (max-width: 768px) {
     display: none;
   }
-`;
+`
+
 
 export const CloseButton = styled.button`
-  display: none;
   background: none;
   border: none;
   font-size: 2rem;
   color: white;
   cursor: pointer;
-
-  @media (max-width: 768px) {
-    display: block;
-  }
 `;
 
 export const ProfileContainer = styled.div`
@@ -74,8 +71,7 @@ export const ProfileContainer = styled.div`
 `;
 
 export const ProfileIcon = styled.img`
-  height: 32px;
-  width: 32px;
+  width: 45px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #fff;
@@ -140,6 +136,7 @@ export const BurgerMenuButton = styled.button`
   font-size: 2rem;
   color: white;
   cursor: pointer;
+  right: 0;
 
   @media (max-width: 768px) {
     display: block;
@@ -165,7 +162,7 @@ export const InfoButtons = styled.div`
 export const BurgerMenuItems = styled.div<{ open: boolean }>`
   display: ${({ open }) => (open ? 'flex' : 'none')};
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: #141414;
   padding: 1rem;
   position: absolute;
   top: 70px;

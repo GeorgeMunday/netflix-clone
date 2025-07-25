@@ -1,14 +1,21 @@
 import { useState, useEffect, type ChangeEvent } from "react";
+import { popular, now_playing, upcoming} from '../modules/ApiLinks';
+import { createDisplayItems, type ItemCatagory } from '../modules/types_files';
 import LinksBar from "../components/linksBar";
 import { PageContainer } from "../styles/Pages.modules";
 import { SearchContainer } from "../styles/searchbar.modules";
 import { apiKey, baseUrl } from "../modules/ApiLinks";
 import DisplayItems from "../components/displayItems";
-import { type ItemCatagory } from "../modules/types_files";
 
 const SearchBar = () => {
   const [query, setQuery] = useState<string>("");
   const [displayItemsTags, setDisplayItemsTags] = useState<ItemCatagory[]>([]);
+
+  const chooseWhatToDisplay: ItemCatagory[] = [
+      createDisplayItems(popular, 'Popular Movies'),
+      createDisplayItems(now_playing, 'Now Playing'),
+      createDisplayItems(upcoming, 'Upcoming Movies')
+    ];
 
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
@@ -48,7 +55,7 @@ const SearchBar = () => {
       {displayItemsTags.length > 0 ? (
       <DisplayItems displayItemsTags={displayItemsTags} />
     ) : (
-      query.length === 0 && <p style={{ textAlign: "center", marginTop: "20px" }}>Start searching!</p>
+      query.length < 3 && <DisplayItems displayItemsTags={chooseWhatToDisplay} />
     )}
     </PageContainer>
   );
